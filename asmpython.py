@@ -9,18 +9,14 @@ def calculate_gpa(component_scores):
     weighted_sum = 0
     
     for i in component_scores:
-
         grade = i[0]
         credits = i[1]
-        #khi nhập sai kiểu dữ liệu sẽ được nhắc và cho nhập lại giá trị
-        if not isinstance(grade, (int, float)) or not isinstance(credits, (int, float)):
-            raise ValueError("The number of subjects and grade must be interger numbers and your credits must be a float number!")
         #tích lũy tổng số tín chỉ và tổng điểm và tín chỉ tương ứng
         total_credits += credits
         weighted_sum += grade * credits
     #khi có giá trị tín = 0 sẽ báo lỗi
-    if total_credits == 0:
-        raise ZeroDivisionError("Total credits cannot be zero.")
+    if total_credits <= 0:
+        raise ZeroDivisionError("Total credits cannot be zero or less than zero.")
     #tính toán gpa
     gpa = weighted_sum / total_credits
     return gpa
@@ -54,11 +50,12 @@ def main():
             print('Your results have been saved to C:/Resultsgpa_asm/results.txt!')       
     #khi có lỗi giá trị hoặc đầu vào
     except ValueError:
-        print(f"Error")
+        print(f"Error the number of subjects and grade must be interger numbers and your credits must be a float number!")
     #khi có lỗi chia cho 0
     except ZeroDivisionError:
         print(f"Error number of subject and credits cannot be zero")
 main()
+
 
 
 
