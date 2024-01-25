@@ -14,7 +14,7 @@ def calculate_gpa(component_scores):
         credits = i[1]
         #khi nhập sai kiểu dữ liệu sẽ được nhắc và cho nhập lại giá trị
         if not isinstance(grade, (int, float)) or not isinstance(credits, (int, float)):
-            raise ValueError("The number of subjects and credits must be natural numbers and your score must be a number!")
+            raise ValueError("The number of subjects and grade must be interger numbers and your credits must be a float number!")
         #tích lũy tổng số tín chỉ và tổng điểm và tín chỉ tương ứng
         total_credits += credits
         weighted_sum += grade * credits
