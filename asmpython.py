@@ -39,7 +39,7 @@ def main():
         #nhập điểm và tín chỉ rồi mở rộng list điểm thành phần
         for i in range(num_subject):
             grade = float(input(f'Enter the grade of the subject {i+1}: '))
-            credits = float(input(f'Enter the number of credits of the {i+1} subject: '))
+            credits = int(input(f'Enter the number of credits of the {i+1} subject: '))
             component_scores.append((grade, credits))
         #sử dụng hàm tính gpa và hàm in ra màn hình ở trên
         gpa = calculate_gpa(component_scores)
